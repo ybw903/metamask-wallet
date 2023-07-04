@@ -1,7 +1,10 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
+import popupReducer from './popup';
 
-const rootReducer = combineReducers({});
+const rootReducer = combineReducers({
+  popup: popupReducer,
+});
 
 export type RootState = ReturnType<typeof rootReducer>;
 

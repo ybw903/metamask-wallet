@@ -15,7 +15,10 @@ const Popup = ({ children, priority }: PopupProps) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
 
   const { openPopup, closePopup } = usePopup();
-  useOnClickOutside(containerRef, (evt) => closePopup());
+  useOnClickOutside(containerRef, (evt) => {
+    if (!containerRef.current?.contains(evt.target as Node)) return;
+    closePopup();
+  });
 
   const handleClickOpenPopup = (evt: React.MouseEvent) => {
     openPopup(<>팝업{priority + 1}</>);

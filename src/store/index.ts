@@ -1,9 +1,11 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 import popupReducer from './popup';
+import metaMaskReducer from './metaMask';
 
 const rootReducer = combineReducers({
   popup: popupReducer,
+  metaMask: metaMaskReducer,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;
